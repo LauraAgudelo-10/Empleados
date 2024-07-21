@@ -1,0 +1,82 @@
+﻿@model IEnumerable<GestionEmpleados.Models.DB.Empleado>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empleados en Departamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        thead {
+            background-color: #3498db;
+            color: white;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tbody tr:hover {
+            background-color: #e1e1e1;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            padding: 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Empleados en Departamento</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Posición Actual</th>
+                <th>Salario</th>
+                <th>Proyectos</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var empleado in Model)
+            {
+                <tr>
+                    <td>@empleado.Nombre</td>
+                    <td>@empleado.PosicionActual</td>
+                    <td>@empleado.Salario.ToString("C")</td>
+                    <td>
+                        <ul>
+                            @foreach (var proyecto in empleado.EmpleadoProyectos.Select(ep => ep.IdProyectoNavigation.Nombre))
+                            {
+                                <li>@proyecto</li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
