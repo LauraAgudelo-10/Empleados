@@ -1,10 +1,13 @@
 Este repositorio contiene una solución con tres proyectos diferentes que implementan una aplicación de gestión de empleados. Para su correcto funcionamiento, se detallan los pasos para configurar y ejecutar cada uno de los proyectos.
+
 Tener en cuenta:
 •	Se debe tener .NET 8.0
 •	Herramienta de línea de comandos de .NET (CLI)
 •	Editor de código (Visual Studio, VS Code, etc.)
 •	Programa SQL server
+
  Proyectos:
+ 
 1.	Programación en C
 
 Este proyecto incluye la implementación de una clase Empleado con propiedades y métodos para gestionar empleados y su historial de posiciones.
